@@ -4,8 +4,9 @@ This is a living file documenting the progress of using image recognition to aut
 # The Plan:
 1. Find and clean images of the base game (for now) tiles.
 2. Add matching segmentation maps to the tile images.
-3. Create a Blender scene to generate synthetic training data.
-4. Train models.
+3. Tag each edge of each tile to indicate what regions they're connected to.
+4. Create a Blender scene to generate synthetic training data.
+5. Train models.
     * One-pass image segmentation.
     * One-pass tile classification.
     * Multi-pass tile classification (first approximate the locations of each tile, and then pass these to a second model for classification).
@@ -18,4 +19,14 @@ This is a living file documenting the progress of using image recognition to aut
   * Manual refinement: just "quick and dirty" pass in Photoshop, as the segmentation maps don't need to be perfect for this task. Additionally, the blurriness of the images makes it difficult to define precise borders anyway.
   * Checked the refined segmentation maps for consistency: e.g., no overlaps or blank spots (aside from cloisters).
   * Sample segmentation maps:
-  * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/raw_images_v2/CRRF_000_3.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_road_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_city_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_grass_mask.png?raw=true" height="100" />
+    * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/raw_images_v2/CRRF_000_3.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_road_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_city_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_grass_mask.png?raw=true" height="100" />
+    
+# 2. Tagging Tiles
+* The goal is to tag the edge of each tile such that we can determine which regions are connected.
+  * We want to do this for cities and fields - and we'll do roads while we are at it.
+* Cities and roads are simple, as there can only be one relevant item on each edge of the tile. Fields, however, can be split in half by roads.
+  * Therefore, for fields, we will have two tags for each tile edge.
+  * We will always start with the top edge (or top-left for fields) and then continue clockwise.
+  * Consider the following example:
+    * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_city.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_road.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_road.png?raw=true" height="100" />
+* While we could automate this using the segmentation maps, it's easy enough to do this by hand. We'll save the tags in a CSV file.

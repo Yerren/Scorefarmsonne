@@ -17,8 +17,6 @@ if __name__ == "__main__":
     file_names = [name.split("_city_mask.png")[0] for name in file_names if "_city_mask.png" in name]
 
     for idx, file_name in enumerate(file_names):
-        if file_name == "Thumbs.db":
-            continue
 
         mask_list = []
         for mask_type in mask_type_list:
