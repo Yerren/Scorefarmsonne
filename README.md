@@ -16,4 +16,6 @@ This is a living file documenting the progress of using image recognition to aut
 * Created segmentation maps. 
   * Initial segmentation maps generated using simple OpenCV image processing.
   * Manual refinement: just "quick and dirty" pass in Photoshop, as the segmentation maps don't need to be perfect for this task. Additionally, the blurriness of the images makes it difficult to define precise borders anyway.
-  * Checked the refined segmentation maps for consistency: e.g., no overlaps or blank spots (aside from cloisters). 
+  * Checked the refined segmentation maps for consistency: e.g., no overlaps or blank spots (aside from cloisters).
+  * Sample segmentation maps:
+  * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/raw_images_v2/CRRF_000_3.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_road_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_city_mask.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/seg_maps_refined/CRRF_000_3_grass_mask.png?raw=true" height="100" />
