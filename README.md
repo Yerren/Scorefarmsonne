@@ -11,4 +11,9 @@ This is a living file documenting the progress of using image recognition to aut
     * Multi-pass tile classification (first approximate the locations of each tile, and then pass these to a second model for classification).
   
 # 1. Creating Assets
-* Sourced the tile images from [here](https://wikicarpedia.com/car/Tile_Reference_(1st_edition)).
+* Sourced the tile images from [here](https://boardgamegeek.com/filepage/15609/base-tilespdf).
+* Created a simple python script resize tile images all to a consistent size.
+* Created segmentation maps. 
+  * Initial segmentation maps generated using simple OpenCV image processing.
+  * Manual refinement: just "quick and dirty" pass in Photoshop, as the segmentation maps don't need to be perfect for this task. Additionally, the blurriness of the images makes it difficult to define precise borders anyway.
+  * Checked the refined segmentation maps for consistency: e.g., no overlaps or blank spots (aside from cloisters). 
