@@ -26,7 +26,7 @@ This is a living file documenting the progress of using image recognition to aut
   * We want to do this for cities and fields - and we'll do roads while we are at it.
 * Cities and roads are simple, as there can only be one relevant item on each edge of the tile. Fields, however, can be split in half by roads.
   * Therefore, for fields, we will have two tags for each tile edge.
-  * We will always start with the top edge (or top-left for fields) and then continue clockwise.
+  * We will always start with the top edge (or top-left for fields) and then continue clockwise. We will tag connected regions with the same number, starting from 0. -1 will indicate that the terrain type isn't applicable. 
   * Consider the following example:
-    * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_city.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_road.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_road.png?raw=true" height="100" />
+    * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_city.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_road.png?raw=true" height="100" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/example_images/CFRR_000_3_edge_tag_example_grass.png?raw=true" height="100" />
 * While we could automate this using the segmentation maps, it's easy enough to do this by hand. We'll save the tags in a CSV file.
