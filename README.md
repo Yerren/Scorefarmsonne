@@ -47,5 +47,5 @@ This is a living file documenting the progress of using image recognition to aut
     5. Select one of the possible valid placement locations (and corresponding orientation), weighted by whether that location will add on to an existing city (most likely), road, or field (least likely). The weighting loosely reflects a real game, where players are more likely to extend cities than roads (and both are more likely than fields).
     6. Update the board state arrays, and place the tile in Blender.
   * Sample rendered boards:
-       * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/blender_files/rendered_scene_1.png?raw=true" height="200" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/blender_files/rendered_scene_1.png?raw=true" height="200" />
+       * <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/blender_files/rendered_scene_1.png?raw=true" height="200" /> <img src="https://github.com/Yerren/Scorefarmsonne/blob/main/blender_files/rendered_scene_2.png?raw=true" height="200" />
   * TODO: Add Meeple placement.
